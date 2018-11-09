@@ -42,13 +42,19 @@ public final class CustomQueryParser extends QueryParser {
         if (sort == null) {
             return null;
         } else {
+            sort = sort.replaceAll("\\[|\"|\\]", "");
             final String[] split = sort.split(",");
             final SortField[] sort_fields = new SortField[split.length];
             for (int i = 0; i < split.length; i++) {
                 String tmp = split[i];
-                final boolean reverse = tmp.charAt(0) == '\\';
+                final boolean reverse = tmp.charAt(0) == '-';
                 // Strip sort order character.
-                if (tmp.charAt(0) == '\\' || tmp.charAt(0) == '/') {
+                if (tmp.charAt(0) == '-' 
+                    // Original source coude for dealing with slashes.
+                    // Taken out, due to not supporting these characters
+                    // || tmp.charAt(0) == '/'
+                        ) 
+                {
                     tmp = tmp.substring(1);
                 }
                 final SortField sortField;
