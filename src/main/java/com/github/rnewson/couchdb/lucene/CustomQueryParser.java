@@ -42,8 +42,8 @@ public final class CustomQueryParser extends QueryParser {
         if (sort == null) {
             return null;
         } else {
-            sort = sort.replaceAll("\\[|\"|\\]", "");
-            final String[] split = sort.split(",");
+            String sortmodified = sort.replaceAll("\\[|\"|\\]", "");
+            final String[] split = sortmodified.split(",");
             final SortField[] sort_fields = new SortField[split.length];
             for (int i = 0; i < split.length; i++) {
                 String tmp = split[i];
