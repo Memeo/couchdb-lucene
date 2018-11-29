@@ -46,7 +46,7 @@ public class DesignDocumentTest {
 
         final JSONObject json = new JSONObject();
         json.put("_id", "_design/hello");
-        json.put("fulltext", fulltext);
+        json.put("indexes", fulltext);
 
         final DesignDocument ddoc = new DesignDocument(json);
         assertThat(ddoc.getView("foo"), notNullValue());
