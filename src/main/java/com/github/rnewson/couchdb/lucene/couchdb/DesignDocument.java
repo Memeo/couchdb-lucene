@@ -34,7 +34,7 @@ public class DesignDocument extends CouchDocument {
             throw new IllegalArgumentException(json
                     + " is not a design document");
         }
-        fulltext = json.optJSONObject("fulltext");
+        fulltext = json.optJSONObject("indexes");
     }
 
     public DesignDocument(final CouchDocument doc) throws JSONException {
