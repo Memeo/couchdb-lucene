@@ -564,6 +564,7 @@ public final class DatabaseIndexer implements Runnable, ResponseHandler<Void> {
 logger.info("This value was detected as a numeric value " + name + " " + (Number)value);
                             } else {
                                 value = f.stringValue();
+logger.info("This value was detected as a string value " + name + " " + (String)value);
                             }
                             if (value != null) {
                                 if ("_id".equals(name)) {
