@@ -554,14 +554,17 @@ public final class DatabaseIndexer implements Runnable, ResponseHandler<Void> {
                         // Include stored fields.
                         for (final IndexableField f : doc.getFields()) {
                             if (!f.fieldType().stored()) {
-                                continue;
+                                logger.info("This field was not restored " + f.name());
+								continue;
                             }
                             final String name = f.name();
                             final Object value;
                             if (f.numericValue() != null) {
                                 value = f.numericValue();
+logger.info("This value was detected as a numeric value " + name + " " + (Number)value);
                             } else {
                                 value = f.stringValue();
+logger.info("This value was detected as a string value " + name + " " + (String)value);
                             }
                             if (value != null) {
                                 if ("_id".equals(name)) {
