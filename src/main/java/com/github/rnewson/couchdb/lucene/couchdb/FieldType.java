@@ -17,7 +17,17 @@
 package com.github.rnewson.couchdb.lucene.couchdb;
 
 import org.apache.commons.lang.time.DateUtils;
-import org.apache.lucene.document.*;
+import org.apache.lucene.document.DoublePoint;
+import org.apache.lucene.document.LongPoint;
+import org.apache.lucene.document.IntPoint;
+import org.apache.lucene.document.Document;
+import org.apache.lucene.document.DoubleDocValuesField;
+import org.apache.lucene.document.FloatPoint;
+import org.apache.lucene.document.FloatDocValuesField;
+import org.apache.lucene.document.SortedDocValuesField;
+import org.apache.lucene.document.StringField;
+import org.apache.lucene.document.TextField;
+import org.apache.lucene.document.Field;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.search.*;
